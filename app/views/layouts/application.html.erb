@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DivinationChatApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+  <body>
+    <header>
+      <h1>占い師とのチャットサイト</h1>
+      <% if user_signed_in? %>
+        <div class="right">
+          <%= link_to "占い師一覧へ", "/" %>
+        </div>
+      <% elsif diviner_signed_in? %>
+        <div class="right">
+          <%= link_to "ユーザー一覧へ", "/" %>
+        </dev>
+      <% else %>
+        <div class="right">
+          <%= link_to "ホームへ", "/" %>
+        </div>
+      <% end %>
+    </header>
+    <%= yield %>
+  </body>
+</html>

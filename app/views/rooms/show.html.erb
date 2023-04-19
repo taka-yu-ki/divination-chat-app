@@ -1,0 +1,38 @@
+<h1>相談部屋</h1>
+<% if user_signed_in? %>
+  <h3><%= @diviner.name %>とのチャットルーム</h3>
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <% if m.is_user %>
+        <div class="message right-message">
+          <%= m.content %>
+        </div>
+      <% else %>
+        <div class="message left-message">
+          <%= m.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% elsif diviner_signed_in? %>
+  <h3><%= @user.name %>とのチャットルーム</h3>
+  <div class="chat-field">
+    <% @messages.each do |m| %>
+      <% if m.is_user %>
+        <div class="message left-message">
+          <%= m.content %>
+        </div>
+      <% else %>
+        <div class="message right-message">
+          <%= m.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for [@room, @message], html: {class: "message-form"} do |f| %>
+  <%= f.text_field :content, class: "message-input"%>
+  <%= f.submit "メッセージを送る", class: "btn message-submit-btn" %>
+<% end %>
+

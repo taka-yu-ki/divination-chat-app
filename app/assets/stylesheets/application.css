@@ -1,0 +1,186 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+* vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_tree .
+*= require_self
+*/
+
+/* 全体 */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.left-message{
+  text-align: left;
+}
+
+.right-message{
+  text-align: right;
+}
+
+/* header */
+header {
+  background-color: #f2f2f2;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.right {
+  text-align: right;
+}
+
+.right a {
+  color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #ccc;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+
+.right a:hover {
+  opacity: 1;
+
+}
+
+/* ログイン中の表示 */
+.logged-in {
+  background-color: #49e64e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.logout-btn {
+  color: white;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 8px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.8;
+}
+
+.logged-in a:hover {
+  opacity: 1;
+}
+
+/* ユーザー一覧 */
+.users-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user {
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+/* 占い師一覧 */
+.diviners-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.diviner {
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 200px;
+}
+
+/*チャットの中*/
+.chat-field {
+  max-height: 500px;
+  overflow-y: auto;
+  padding: 10px;
+  background-color:#ccc;
+}
+  
+.right-message {
+  background-color: #DCF8C6; 
+  color: #555; 
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  float: right; 
+  clear: both; 
+}
+  
+.left-message {
+  background-color: #E0F0FF; 
+  color: #555; 
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  float: left; 
+  clear: both; 
+}
+
+/* フォーム */
+.message-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-input {
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.message-submit-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.message-submit-btn:hover {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

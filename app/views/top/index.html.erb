@@ -1,0 +1,59 @@
+<% if user_signed_in? %>
+  <div class="logged-in">
+    〜<%= current_user.name %>がログインしています〜
+    <%= link_to "ログアウト", destroy_user_session_path, :method => :delete, class: "logout-btn" %>
+  </div>
+  <br>
+  <h2>占い師一覧</h2>
+  <br>
+  <div class="diviners-list">
+    <% @diviners.each do |diviner| %>
+      <div class="diviner">
+        <%= diviner.name %>
+        <% if @diviner_ids.include?(diviner.id) %>
+          <br>
+          <%= link_to "チャットへ", room_path(current_user.rooms.find_by(diviner_id: diviner.id)), class: "chat-btn" %><br>
+        <% else %>
+          <%= form_for Room.new do |f| %>
+            <%= f.hidden_field :diviner_id, :value => diviner.id %>
+            <%= f.submit "チャットを始める", class: "chat-btn" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>        
+<% elsif diviner_signed_in? %>
+  <div class="logged-in">
+    〜<%= current_diviner.name %>がログインしています〜
+    <%= link_to "ログアウト", destroy_diviner_session_path, :method => :delete, class: "logout-btn" %>
+  </div>
+  <br>
+  <h2>ユーザー一覧</h2>
+  <br>
+  <div class="users-list">
+    <% @users.each do |user| %>
+      <div class="user">
+        <%= user.name %>
+        <% if @user_ids.include?(user.id) %>
+          <br>
+          <%= link_to "チャットへ", room_path(current_diviner.rooms.find_by(user_id: user.id)), class: "chat-btn" %><br>
+        <% else %>
+          <%= form_for Room.new do |f| %>
+            <%= f.hidden_field :user_id, :value => user.id %>
+            <%= f.submit "チャットを始める", class: "chat-btn" %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="not-logged-in">
+    <h3>ユーザー</h3>
+    <%= link_to "ログイン", new_user_session_path, class: "login-btn" %>
+    <%= link_to "新規登録", new_user_registration_path, class: "signup-btn" %>
+    <h3>占い師</h3>
+    <%= link_to "ログイン", new_diviner_session_path, class: "login-btn" %>
+    <%= link_to "新規登録", new_diviner_registration_path, class: "signup-btn" %>
+  </div>
+<% end %>
+
